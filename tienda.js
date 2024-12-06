@@ -12,7 +12,7 @@ const productosDescuentos = products => {
     return products.filter(prod => prod.discount > 0);
 }
 
-console.log('Productos con descuentos: ', productosDescuentos(products));
+console.log('\nProductos con descuentos: ', productosDescuentos(products));
 
 const precioFinal = (products) => {
     return products.map(prod => {
@@ -25,12 +25,12 @@ const precioFinal = (products) => {
     });
 }
 
-console.log('Productos con precio final: ', precioFinal(products));
+console.log('\nProductos con precio final: ', precioFinal(products));
 
 const stockBajo = products => {
     return products.filter(prod => prod.stock < 5);
 }
-console.log('Productos con stock bajo: ', stockBajo(products));
+console.log('\nProductos con stock bajo: ', stockBajo(products));
 
 
 const actualizarProducto = (name, quantity) => {
@@ -38,8 +38,9 @@ const actualizarProducto = (name, quantity) => {
         const prod = products.find(prod => prod.name === name);
         if(prod){
             prod.stock += quantity;
+            console.log(`\nProducto ${prod.name} actualizado con nuevo stock ${prod.stock}`);
         }else{
-            throw Error(`No se puede actualizar el stock, el producto ${name} no existe!!!`);
+            throw Error(`\nNo se puede actualizar el stock, el producto ${name} no existe!!!`);
         }
     }catch(e){
         console.error(e);
@@ -47,7 +48,6 @@ const actualizarProducto = (name, quantity) => {
 }
 
 actualizarProducto('Leche', 1000);
-console.log(products);
 
 const resumenCategorias = (products) => {
     const categorias = [];
@@ -58,4 +58,4 @@ const resumenCategorias = (products) => {
 }
 
 const categorias = resumenCategorias(products);
-console.log('Resumen categorías: ', categorias)
+console.log('\nResumen categorías: ', categorias)
